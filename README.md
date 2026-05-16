@@ -38,7 +38,6 @@ This project highlights intermediate and advanced software engineering concepts 
   |  Film / Actor |
   +---------------+
 
-```
 
 ##💻 Tech Stack & Tools
 . Language: Java (JDK 8 or higher)

@@ -38,15 +38,16 @@ This project highlights intermediate and advanced software engineering concepts 
   |  Film / Actor |
   +---------------+
 
+```
 
-##💻 Tech Stack & Tools
+## 💻 Tech Stack & Tools
 . Language: Java (JDK 8 or higher)
 
 . GUI Framework: Java Swing / AWT
 
 . IDE: NetBeans IDE
 
-##⚙️ Installation & Running the App
+## ⚙️ Installation & Running the App
 1. Clone this repository to your local machine:
  git clone [https://github.com/MehmetMertYigit/FilmManagement.git](https://github.com/MehmetMertYigit/FilmManagement.git)
 

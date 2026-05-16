@@ -36,7 +36,7 @@ public class FilmManagementSystem {
     addFilm("The Godfather", "F009", "Crime", 1972, 8.2);
     addFilm("3 idiots", "F010", "Comedy", 2009, 9.5);
 
-    // Her filme 3 başrol oyuncusu ekleyelim
+    
     Actor actor1 = new Actor("Tom Hanks", "A001");
     Actor actor2 = new Actor("Robin Wright", "A002");
     Actor actor3 = new Actor("Gary Sinise", "A003");
@@ -148,9 +148,9 @@ public class FilmManagementSystem {
     addActor(actor28.name, actor28.uniqueID);
     addActor(actor29.name, actor29.uniqueID);
     addActor(actor30.name, actor30.uniqueID);
-    addActorToFilm(actor28.uniqueID, theGodfather.uniqueID);
-    addActorToFilm(actor29.uniqueID, theGodfather.uniqueID);
-    addActorToFilm(actor30.uniqueID, theGodfather.uniqueID);
+    addActorToFilm(actor28.uniqueID,threeidiots.uniqueID);
+    addActorToFilm(actor29.uniqueID, threeidiots.uniqueID);
+    addActorToFilm(actor30.uniqueID, threeidiots.uniqueID);
     
     
     
@@ -229,45 +229,45 @@ public class FilmManagementSystem {
                     double popularityScore = scanner.nextDouble();
                     scanner.nextLine(); // Enter tuşunu temizlemek için
 
-    // Film ekleme işlemi
-    if (films.containsKey(id)) {
-        System.out.println("A film with this ID already exists. Please use a unique ID.");
-    } else {
-        addFilm(name, id, genre, year, popularityScore);
-        System.out.println("Film added successfully!");
-    }
-    break;
+                    
+                     if (films.containsKey(id)) {
+                     System.out.println("A film with this ID already exists. Please use a unique ID.");
+                     } else {
+                     addFilm(name, id, genre, year, popularityScore);
+                        System.out.println("Film added successfully!");
+                        }
+                     break;
                     
                 case 2:
-    // Films HashMap'inde mevcut ID'leri görmek için ekliyoruz
-    System.out.println("Films in system: " + films.keySet());  // Bu satır, sistemdeki tüm film ID'lerini gösterir
+                // Films HashMap'inde mevcut ID'leri görmek için ekliyoruz
+                System.out.println("Films in system: " + films.keySet());  
+                // Bu satır, sistemdeki tüm film ID'lerini gösterir
                 System.out.print("Enter film ID to update: ");
-    String updateId = scanner.nextLine().trim();  // ID'yi doğru almak için .trim() kullanıyoruz
+                String updateId = scanner.nextLine().trim();  // ID'yi doğru almak için .trim() kullanıyoruz
 
+                Film film = films.get(updateId); // ID'ye göre film bulunuyor
+            if (film != null) {
+                 System.out.print("Enter new name (leave blank to keep unchanged): ");
+                 String newName = scanner.nextLine();
+            if (!newName.isEmpty()) film.name = newName;
 
-    Film film = films.get(updateId); // ID'ye göre film bulunuyor
-    if (film != null) {
-        System.out.print("Enter new name (leave blank to keep unchanged): ");
-        String newName = scanner.nextLine();
-        if (!newName.isEmpty()) film.name = newName;
+                 System.out.print("Enter new genre (leave blank to keep unchanged): ");
+                 String newGenre = scanner.nextLine();
+            if (!newGenre.isEmpty()) film.genre = newGenre;
 
-        System.out.print("Enter new genre (leave blank to keep unchanged): ");
-        String newGenre = scanner.nextLine();
-        if (!newGenre.isEmpty()) film.genre = newGenre;
+                System.out.print("Enter new release year (0 to keep unchanged): ");
+                int newYear = scanner.nextInt();
+            if (newYear != 0) film.releaseYear = newYear;
 
-        System.out.print("Enter new release year (0 to keep unchanged): ");
-        int newYear = scanner.nextInt();
-        if (newYear != 0) film.releaseYear = newYear;
+                System.out.print("Enter new popularity score (0 to keep unchanged): ");
+                double newScore = scanner.nextDouble();
+            if (newScore != 0) film.popularityScore = newScore;
 
-        System.out.print("Enter new popularity score (0 to keep unchanged): ");
-        double newScore = scanner.nextDouble();
-        if (newScore != 0) film.popularityScore = newScore;
-
-        System.out.println("Film updated successfully!");
-    } else {
-        System.out.println("Film not found! Please ensure the film ID is correct.");
-    }
-    break;
+                 System.out.println("Film updated successfully!");
+           } else {
+                 System.out.println("Film not found! Please ensure the film ID is correct.");
+                }
+                break;
     
                     
                
@@ -362,7 +362,7 @@ public class FilmManagementSystem {
         }
     }
     public void searchFilmAndDisplay(String searchName) {
-    // İlk olarak film araması
+   
     Film foundFilm = searchFilm(searchName);
     if (foundFilm != null) {
         System.out.println("Film Found!");
